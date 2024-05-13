@@ -1,10 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuthContext from "../hooks/useAuthContext";
 
 const Navbar = () => {
 
+  const{ user, logOut} = useAuthContext();
+
 
   const navLinks = (
-    <div className="flex flex-col  lg:flex-row gap-2 ">
+    <div className="flex flex-col  lg:flex-row gap-4 ">
       <li>
         <NavLink
           className={({ isActive }) =>
@@ -20,11 +23,11 @@ const Navbar = () => {
 
       <li>
         <NavLink
-        className={({ isActive }) =>
-          isActive
-            ? "text-lg border-b-2 font-bold flex justify-center border-orange-600 text-orange-500"
-            : "font-bold text-lg flex justify-center text-orange-500"
-        }
+          className={({ isActive }) =>
+            isActive
+              ? "text-lg border-b-2 font-bold flex justify-center border-orange-600 text-orange-500"
+              : "font-bold text-lg flex justify-center text-orange-500"
+          }
           to="/allFoods"
         >
           All Foods
@@ -45,8 +48,6 @@ const Navbar = () => {
       </li>
     </div>
   );
-  
-
 
   return (
     <div className="bg-[#dbf6db]">
@@ -80,21 +81,56 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link className="md:text-2xl text-xl font-extrabold meri">
+          <Link className="md:text-2xl text-xl font-extrabold merienda">
             Muhammad<span className="text-orange-500">’</span>s{" "}
             <span className="text-orange-500 ">Cuisine</span>{" "}
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-             {navLinks}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end lg:w-[50%] w-[30%]">
-          <Link  className="font-bold text-xl border-x-2 border-orange-400 rounded-lg px-3 border-y-0 text-orange-400 hover:text-black">
+
+        { user ? (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="user image"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 space-y-3 font-semibold"
+            >
+              <li>
+                <Link>My added food items</Link>
+              </li>
+              <li>
+                <Link>Add a food item</Link>
+              </li>
+              <li>
+                <Link>My ordered food items</Link>
+              </li>
+              <li>
+                <Link
+                 onClick={()=> logOut()}
+                 className="text-center block bg-gray-200">Logout</Link>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div className="navbar-end lg:w-[50%] w-[30%]">
+            <Link to='/login' className="font-bold text-xl border-x-2 border-orange-600 rounded-lg px-3 border-y-0 text-orange-500  hover:text-black">
               Login
-          </Link>
-        </div>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
