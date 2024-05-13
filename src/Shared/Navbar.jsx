@@ -91,16 +91,17 @@ const Navbar = () => {
         </div>
 
         { user ? (
+          <div className="navbar-end">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full">
+              <div  className="w-10 rounded-full">
                 <img
                   alt="user image"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  src={user?.photoURL}
                 />
               </div>
             </div>
@@ -120,9 +121,10 @@ const Navbar = () => {
               <li>
                 <Link
                  onClick={()=> logOut()}
-                 className="text-center block bg-gray-200">Logout</Link>
+                 className="text-center block bg-orange-400 hover:text-orange-500 text-white">Logout</Link>
               </li>
             </ul>
+          </div>
           </div>
         ) : (
           <div className="navbar-end lg:w-[50%] w-[30%]">

@@ -3,6 +3,7 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home";
 import AllFoods from "../Pages/AllFoods";
 import Gallery from "../Pages/Gallery";
+import Login from "../Pages/Authentication/Login";
 
 
 
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
        element:<Gallery/>
       },
       {
-        
+        path:'/login',
+        element:<Login/>
       }
     ]
   },
