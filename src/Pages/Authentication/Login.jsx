@@ -69,7 +69,7 @@ const Login = () => {
             <img
               className='w-12 h-12 '
               src={logo}
-              alt=''
+              alt='website logo'
             />
           </div>
 
@@ -106,6 +106,7 @@ const Login = () => {
                 id='LoggingEmailAddress'
                 autoComplete='email'
                 name='email'
+                placeholder="Enter your email address"
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='email'
               />
@@ -125,6 +126,7 @@ const Login = () => {
                 id='loggingPassword'
                 autoComplete='current-password'
                 name='password'
+                placeholder="Enter your password"
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='password'
               />
@@ -132,7 +134,7 @@ const Login = () => {
             <div className='mt-6'>
               <button
                 type='submit'
-                className='w-full px-6 py-3 text-lg font-semibold tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 '
+                className='w-full px-6 py-2 text-lg font-semibold tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50 '
               >
                 Login
               </button>
