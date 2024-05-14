@@ -1,6 +1,27 @@
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useEffect, useState } from "react";
+import FoodCard from "./FoodCard";
 
 const AllFoods = () => {
+
+  const [cards, setCards] = useState([]);
+  const axiosSecure = useAxiosSecure();
+
+
+  useEffect(() => {
+    getCards();
+  }, []);
+
+  const getCards = async () => {
+    const { data } = await axiosSecure.get("/allFoods");
+    setCards(data);
+  };
+
+  console.log(cards);
+
+
+
   return (
     <div className="space-y-10">
       <div className="flex relative w-full ">
@@ -27,7 +48,7 @@ const AllFoods = () => {
 
       <div>
         <div className="lg:w-1/3 md:w-1/2 w-[80%] mx-auto">
-          
+
           <form>
             <div className="flex items-center mt-2">
               <input
@@ -37,7 +58,7 @@ const AllFoods = () => {
               />
               <button
                 type="submit"
-                className="lg:py-2.5 py-1.5 px-3 text-gray-500 bg-gray-100  border border-r-0 rtl:rounded-r-lg rtl:rounded-l-none rtl:border-l-0 rtl:border-r rounded-r-lg font-bold"
+                className="lg:py-2.5 py-1.5 px-3 text-gray-400 bg-[#d4ffd4]  border border-r-0 rtl:rounded-r-lg  rtl:rounded-l-none rtl:border-l-0 rtl:border-r rounded-r-lg font-bold"
               >
                 Search
               </button>
@@ -46,7 +67,18 @@ const AllFoods = () => {
         </div>
       </div>
 
-      {}
+      <div className="xl:w-[70%] w-[80%] mx-auto">
+
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-6 gap-8">
+      {
+        cards.map(card=> <FoodCard
+         key={card._id}
+         card={card}
+        />)
+      }
+      </div>
+      </div>
+
     </div>
   );
 };

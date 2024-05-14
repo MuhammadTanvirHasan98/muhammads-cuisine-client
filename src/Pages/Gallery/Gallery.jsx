@@ -79,7 +79,7 @@ const Gallery = () => {
               Foods Gallery
             </h1>
             <h1 className="font-bold text-sm">
-              <Link className="text-orange-600" to="/">
+              <Link className="text-orange-500" to="/">
                 Home
               </Link>{" "}
               | Foods Gallery

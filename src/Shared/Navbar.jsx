@@ -50,7 +50,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-[#dbf6db] shadow-2xl z-10">
+    <div className=" bg-[#dbf6db]">
+    <div className=" max-w-[2400px] mx-auto">
       <div className="navbar lg:w-[86%] p-0  w-[95%] mx-auto">
         <div className="navbar-start lg:w-[50%] w-full">
           <div className="dropdown">
@@ -133,6 +134,7 @@ const Navbar = () => {
             </Link>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const MainLayout = () => {
       <Navbar />
 
       {/* Outlet */}
-      <div className="min-h-[calc(100vh-150px)]">
+      <div className="min-h-[calc(100vh-600px)] max-w-[2400px] mx-auto">
         <Outlet />
       </div>
 
