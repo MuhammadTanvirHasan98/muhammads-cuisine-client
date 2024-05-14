@@ -30,7 +30,11 @@ const TopFoods = () => {
          
           <h1 className="lg:text-5xl text-3xl merienda font-bold my-6">Our Top Delicious Foods</h1>
           <p className="text-gray-500  w-[90%] md:w-[70%] lg:w-[50%] mx-auto">
-          At <span className="text-orange-500 font-bold merienda text-sm">Muhammad’s Cuisine</span> , we believe that great food begins with great ingredients. That’s why we handpick the freshest produce and finest meats, ensuring that every bite bursts with flavor and vitality. Our Top Selling Food Section promises to delight and inspire.
+          At   <span className="merienda text-sm font-bold text-black">
+                    Muhammad
+                    <span className="text-orange-500">’</span>s{' '}
+                    <span className="text-orange-500">Cuisine</span>
+                  </span> , we believe that great food begins with great ingredients. That’s why we handpick the freshest produce and finest meats, ensuring that every bite bursts with flavor and vitality. Our Top Selling Food Section promises to delight and inspire.
           </p>
       </div>
       
