@@ -69,7 +69,7 @@ const Gallery = () => {
       <div className="flex relative w-full ">
         <img
           src="https://i.ibb.co/cQLLT5j/g-banner.png"
-          className="lg:max-h-[300px] md:max-h-[200px] max-h-[100px] w-full "
+          className="lg:max-h-[300px] md:max-h-[180px] max-h-[100px] w-full "
           alt=""
         />
 
