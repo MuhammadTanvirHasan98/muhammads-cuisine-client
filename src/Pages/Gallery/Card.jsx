@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 const Card = ({card}) => {
 
 
-  const{ user_name, feedback, image} = card;
+  const{user_name, feedback, image} = card;
 
 
   return (

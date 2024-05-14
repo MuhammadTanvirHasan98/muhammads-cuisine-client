@@ -97,7 +97,7 @@ const Footer = () => {
               </p>
               <p className="flex items-center play">
                 <img
-                  className="w-[15px]  h-[13px] rounded-full"
+                  className="w-[18px]  h-[16px] rounded-full"
                   src={logo}
                   alt="logo"
                 />
