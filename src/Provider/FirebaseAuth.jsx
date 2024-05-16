@@ -51,6 +51,7 @@ const FirebaseAuth = ({children}) => {
     const unsubscribe =  onAuthStateChanged(auth, (currentUser)=>{
       if(currentUser){
         setUser(currentUser);
+        console.log(currentUser)
         setLoading(false);
         console.log("Current user logged in!")
       }
