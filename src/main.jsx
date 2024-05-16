@@ -8,9 +8,9 @@ import FirebaseAuth from './Provider/FirebaseAuth';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
+  <React.StrictMode>
    <FirebaseAuth>
      <RouterProvider router={router} />
    </FirebaseAuth>
-  // </React.StrictMode>,
+  </React.StrictMode>,
 )

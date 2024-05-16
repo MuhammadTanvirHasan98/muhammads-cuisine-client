@@ -4,19 +4,21 @@ import { useEffect } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
 import { FcGoogle } from "react-icons/fc";
 import logo from '../../assets/images/logo.png'
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const Login = () => {
 
   const {user, loginUser, loginWithGoogle} = useAuthContext();
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
   const location = useLocation();
   console.log(location);
   const gotoThere = location.state || '/';
 
   useEffect(()=>{
      if(user){
-       navigate('/');
+       navigate(gotoThere);
      }
   },[user])
 
@@ -29,7 +31,11 @@ const Login = () => {
       console.log({email, password});
 
       try{
-        await loginUser(email, password);
+        const result = await loginUser(email, password);
+        const{data} = await axiosSecure.post( '/jwt', {email: result?.user?.email})
+
+         console.log(data);
+
          toast.success("Successfully logged in!")
          navigate(gotoThere, {replace:true});
       } 
@@ -42,7 +48,10 @@ const Login = () => {
   const handleGoogleLogin = async () =>{
   
      try{
-       await loginWithGoogle()
+       const result =  await loginWithGoogle()
+       const{data} = await axiosSecure.post( '/jwt', {email: result?.user?.email})
+       console.log(data);
+
        toast.success("Successfully logged in with google!")
        navigate(gotoThere, {replace:true});
      }

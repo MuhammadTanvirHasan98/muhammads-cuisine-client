@@ -73,6 +73,8 @@ const PurchaseFood = () => {
         <h1 className="text-center md:text-5xl text-3xl  font-bold text-orange-500 merienda mb-10">
           Purchase Food
         </h1>
+        {quantity===0 && <p className="text-center mb-4 text-gray-500">You can not buy this  food. Because this <span className="text-red-500">item is not available!</span></p> }
+
         <div className="lg:w-1/2 md:w-[60%] w-[90%] mx-auto  border-2 border-orange-200 rounded-xl shadow-2xl bg-gradient-to-br">
           <div className="xl:text-2xl w-full lg:p-10 md:p-7 p-5 text-[#385398]">
             {/* Buyer info */}

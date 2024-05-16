@@ -2,16 +2,25 @@ import { Helmet } from "react-helmet";
 import useAuthContext from "../hooks/useAuthContext";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 
-const AddFood = () => {
+const UpdateFood = () => {
 
+   const foodInfo = useLoaderData();
    const { user } = useAuthContext();
    const axiosSecure = useAxiosSecure()
    const navigate = useNavigate();
 
-  const handleAddFood = async (e) => {
+   console.log(foodInfo);
+
+   const {
+    _id, food_name,food_img,price, quantity,purchase_count, category,food_origin ,  made_by,
+    description
+  } = foodInfo;
+  
+
+  const handleUpdateFood = async (e) => {
 
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -25,77 +34,59 @@ const AddFood = () => {
     const food_origin = form.get("origin");
     const description = form.get("description");
 
-    const purchase_count = 0;
-    const made_by ={
-       name: user?.displayName,
-       email: user?.email,
-    }
 
-    const newFood = {
+    const updatedFood = {
       food_name,food_img,price, quantity,purchase_count, category,food_origin ,  made_by,
       description
     };
-    console.table(newFood);
+    console.table(updatedFood);
 
     try{
-      const {data} = await axiosSecure.post("/addFood", newFood)
+      const {data} = await axiosSecure.post(`/updateFood/${_id}`, updatedFood)
       console.log(data);
-      if(data.insertedId){
+      if(data.modifiedCount> 0){
               Swal.fire({
-                title: "Food Added!",
-                text: "Your food item has been added successfully.",
+                title: "Food Updated!",
+                text: "Your food item has been updated successfully.",
                 icon: "success"
               });
-               e.target.reset();
-               navigate('/addedFoods')
+              navigate('/addedFoods')
             }
+          else{
+            Swal.fire({
+              title: "Food updating failed!",
+              text: "Your did not update anything!",
+              icon: "error"
+            });
+          }  
     }
     catch(err){
        console.log(err.message);
     }
 
 
-    //  fetch("https://artistry-creations-server.vercel.app/allCrafts",{
-    //    method:"POST",
-    //    headers:{
-    //     "content-type":"application/json"
-    //    },
-    //    body:JSON.stringify(newCraft)
-    //  })
-    //  .then(res=> res.json())
-    //  .then(data =>{
-    //     if(data.insertedId){
-    //       Swal.fire({
-    //         title: "Added!",
-    //         text: "Your craft item has been added.",
-    //         icon: "success"
-    //       });
-    //       //  e.target.reset();
-    //        console.log(data);
-    //     }
-    //  })
   };
 
  
   return (
     <div className="md:w-[80%] mx-auto my-20">
       <Helmet>
-        <title>Add Food | Muhammad’s Cuisine</title>
+        <title>Update Food | Muhammad’s Cuisine</title>
       </Helmet>
 
-      <div className="md:p-10 p-6 my-4 rounded-lg xl:w-[70%] w-[84%]  mx-auto border-2 border-orange-200 bg-gradient-to-br from-[#d8ffe1] via-blue-50 to-[#ffe0c5ed]">
+      <div className="md:p-10 p-6 my-4 rounded-lg xl:w-[70%] w-[84%]  mx-auto border-2 border-orange-200 bg-gradient-to-br from-[#ffe0c5ed] via-blue-50 to-[#d8ffe1]">
         <div className="text-center">
           <h1 className=" md:text-3xl text-2xl coff font-bold merienda text-orange-400">
-            Add a food item
+            Update a food item
           </h1>
-          <hr className="md:w-[240px] w-[195px] mx-auto border-orange-400" />
+          <hr className="md:w-[280px] w-[230px] mx-auto border-orange-400 mt-1" />
           <p className="md:w-3/4 mx-auto lg:mt-6 mt-2 text-gray-500 font-semibold tracking-wide md:text-lg text-xs">
-          You can add food item that you like most so that people may know about new category of delicious foods and also purchase.After adding food, you can find at <span className="font-bold text-orange-400"> My added food items</span> list.
+          You can update food item that you added in your list. After updating food, you can find updated food item at <span className="font-bold text-orange-400"> My added food items</span> list.
           </p>
         </div>
 
         <div className="mt-6">
-          <form onSubmit={handleAddFood}>
+          <form onSubmit={handleUpdateFood}>
             {/* Field 1 */}
             <div className="flex flex-col md:flex-row justify-between md:gap-4">
               <div className="form-control md:w-1/2 w-full">
@@ -108,6 +99,7 @@ const AddFood = () => {
                   type="text"
                   placeholder="Enter food's name"
                   name="itemName"
+                  defaultValue={food_name}
                   className="input input-bordered input-info text-blue-600 "
                   required
                 />
@@ -121,6 +113,7 @@ const AddFood = () => {
                 </label>
                 <input
                   type="text"
+                  defaultValue={price}
                   placeholder="Enter food's price"
                   name="price"
                   className="input input-bordered input-info text-blue-600 "
@@ -140,6 +133,7 @@ const AddFood = () => {
                 <input
                   type="text"
                   name="photo"
+                  defaultValue={food_img}
                   placeholder="Enter photo url of food item"
                   className="input input-bordered input-info text-blue-600"
                 />
@@ -154,6 +148,7 @@ const AddFood = () => {
                 <input
                   type="number"
                   name="quantity"
+                  defaultValue={quantity}
                   placeholder="Enter food's quantity"
                   className="input input-bordered input-info text-blue-600"
                 />
@@ -172,6 +167,7 @@ const AddFood = () => {
                 <input
                   type="text"
                   name="category"
+                  defaultValue={category}
                   placeholder="Enter food's category"
                   className="input input-bordered input-info text-blue-600"
                 />
@@ -185,6 +181,7 @@ const AddFood = () => {
                 </label>
                 <input
                   type="text"
+                  defaultValue={food_origin}
                   name="origin"
                   placeholder="Enter food's origin (Country)"
                   className="input input-bordered input-info text-blue-600"
@@ -238,6 +235,7 @@ const AddFood = () => {
               </label>
               <textarea
                 name="description"
+                defaultValue={description}
                 className="textarea textarea-info text-blue-600"
                 placeholder="Give a short description of food item such as making procedure, ingredients etc. within 100-120 words."
               ></textarea>
@@ -259,4 +257,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
+export default UpdateFood;

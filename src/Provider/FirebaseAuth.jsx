@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 
 
@@ -15,6 +16,7 @@ const FirebaseAuth = ({children}) => {
   const[user, setUser] = useState([]);
   const[loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
+  const axiosSecure = useAxiosSecure();
 
 
   //create user
@@ -51,7 +53,6 @@ const FirebaseAuth = ({children}) => {
     const unsubscribe =  onAuthStateChanged(auth, (currentUser)=>{
       if(currentUser){
         setUser(currentUser);
-        console.log(currentUser)
         setLoading(false);
         console.log("Current user logged in!")
       }
@@ -72,7 +73,9 @@ const FirebaseAuth = ({children}) => {
 
 
   // user log out //
-  const logOut = () =>{
+  const logOut = async() =>{
+    const {data} = await axiosSecure.get("/logOut")
+    console.log(data);
      setLoading(true);
      return signOut(auth);
   }

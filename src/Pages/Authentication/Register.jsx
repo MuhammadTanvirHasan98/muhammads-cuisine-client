@@ -3,10 +3,12 @@ import toast from "react-hot-toast";
 import { useEffect } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
 import logo from '../../assets/images/logo.png'
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Register = () => {
 
   const {user,setUser, createUser, updateUserProfile} = useAuthContext();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -30,6 +32,11 @@ const Register = () => {
        const result = await createUser(email, password);
        await updateUserProfile(name, photo);
        console.log(result);
+
+    //take a token to be verified as valid user
+       const{data} = await axiosSecure.post( '/jwt', {email: result?.user?.email})
+
+       console.log(data);
 
        setUser({...result?.user, displayName: name, photoURL: photo})
        toast.success("Registered successfully!")

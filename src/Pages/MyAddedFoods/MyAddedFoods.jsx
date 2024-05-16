@@ -26,38 +26,12 @@ const MyAddedFoods = () => {
   console.log(foods);
 
 
-//   const handleDelete = async (id) =>{
-
-//    console.log(id);
-//    try{
-
-//         const {data} = await axiosSecure.delete(`/deletePurchasedFood/${id}`)
-//         console.log(data);
-         
-//           // if(data.deletedCount> 0){
-//           //   Swal.fire({
-//           //     title: "Deleted!",
-//           //     text: "Your food item has been deleted!",
-//           //     icon: "success"
-//           //   });
-//           //   getFoods()
-//           // }
-//    }
-//    catch(err){
-//      toast.error(err.message);
-//    }
-
-// }
-
-
-
-
 
 
   return (
     <section className='container px-4 mx-auto pt-12'>
       <div className='flex items-center justify-center gap-x-3'>
-        <h2 className='text-xl font-medium text-orange-500 merienda'>Food Purchases</h2>
+        <h2 className='text-xl font-medium text-orange-500 merienda'>Your Added Foods</h2>
 
         <span className='px-3 py-1 text-md text-orange-500 font-bold bg-[#deffd8] rounded-full '>
           {foods.length}
@@ -93,7 +67,7 @@ const MyAddedFoods = () => {
                       scope='col'
                       className='px-4 py-3.5 text-sm  text-left rtl:text-right '
                     >
-                      <span>Food Owner</span>
+                      <span>Category</span>
                     </th>
 
                     <th
@@ -101,7 +75,7 @@ const MyAddedFoods = () => {
                       className='px-4 py-3.5 text-sm  text-left rtl:text-right '
                     >
                       <button className='flex items-center gap-x-2'>
-                        <span>Price</span>
+                        <span>Food Origin</span>
                       </button>
                     </th>
 
@@ -109,7 +83,7 @@ const MyAddedFoods = () => {
                       scope='col'
                       className='px-4 py-3.5 text-sm  text-left rtl:text-right '
                     >
-                      Purchased at
+                      Price
                     </th>
 
                     <th className='px-4 py-3.5 text-sm  text-center rtl:text-right '>
@@ -137,28 +111,22 @@ const MyAddedFoods = () => {
                       {food?.food_name}
                     </td>
 
-                    {/* Food Owner */}
-                    {/* <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
-                      {food?.food_owner}
-                    </td> */}
-
-                  {/* Food Price */}
-                    <td className='px-4 py-4 text-sm text-orange-500  whitespace-nowrap'>
-                      ${food?.price}
+                    {/* Food Category */}
+                    <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
+                      {food?.category}
                     </td>
 
-                    {/* Purchased time */}    
-                    {/* <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
-                      <div className="flex flex-col gap-1">
-                      <p>
-                       {food?.purchase_date.time} 
-                      </p>
-                      <p>     
-                       {food?.purchase_date.date} 
-                      </p>
-                      </div>
-                    </td> */}
-                    
+                  {/* Food Origin */}
+                    <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
+                      {food?.food_origin}
+                    </td>
+
+                    {/* Price */} 
+                    <td className='px-4 py-4 text-sm text-orange-500  whitespace-nowrap'>
+                       $ {food?.price}
+                    </td>   
+                  
+                    {/* Action button */}
                     <td className='px-4 py-4 text-sm flex justify-center whitespace-nowrap'>
                       <Link
                        to={`/updateFood/${food?._id}`}>
