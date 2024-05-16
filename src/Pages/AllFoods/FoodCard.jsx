@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 const FoodCard = ({ card }) => {
 
-  const { _id, food_name, category, purchase_count, price,quantity } = card;
+  const { _id, food_name,food_img, category, purchase_count, price,quantity } = card;
 
   return (
     <div className="">
-      <div className=" hover:bg-[#eefff3] transition duration-700 hover:scale-105  rounded-lg shadow-xl">
+      <div className=" hover:bg-[#eefff3] transition duration-700 hover:scale-105 hover:border-orange-300 hover:border-2 rounded-lg shadow-2xl">
         {/* Card Image */}
         <figure className="xl:px-8 xl:pt-8 px-5 pt-5">
           <img
-            src="https://i.ibb.co/TWJvKqr/feedback.png"
-            alt="craft_image"
+            src={food_img}
+            alt="food_image"
             className="rounded-lg w-full xl:h-[300px] md:h-[220px] h-[280px]"
           />
         </figure>

@@ -10,6 +10,7 @@ import ErrorPage from "../Pages/ErrorPage";
 import MyOrderedFoods from "../Pages/MyOrderedFoods/MyOrderedFoods";
 import MyAddedFoods from "../Pages/MyAddedFoods/MyAddedFoods";
 import AddFood from "../Pages/AddFood";
+import FoodDetails from "../Pages/FoodDetails";
 
 
 
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
       {
        path:'/addFood',
        element:<AddFood/>
+      },
+      {
+       path:'/foodDetails/:id',
+       element:<FoodDetails/>,
+       loader:({params})=> fetch(`http://localhost:3000/food/${params.id}`)
       },
       {
        path:'/addedFoods',

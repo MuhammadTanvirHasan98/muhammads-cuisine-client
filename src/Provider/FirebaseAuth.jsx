@@ -71,7 +71,7 @@ const FirebaseAuth = ({children}) => {
 
 
   // user log out //
-  const logOut = async() =>{
+  const logOut = () =>{
      setLoading(true);
      return signOut(auth);
   }
