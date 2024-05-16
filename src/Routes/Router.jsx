@@ -7,6 +7,9 @@ import Register from "../Pages/Authentication/Register";
 import Gallery from "../Pages/Gallery/Gallery";
 import AllFoods from "../Pages/AllFoods/AllFoods";
 import ErrorPage from "../Pages/ErrorPage";
+import MyOrderedFoods from "../Pages/MyOrderedFoods/MyOrderedFoods";
+import MyAddedFoods from "../Pages/MyAddedFoods/MyAddedFoods";
+import AddFood from "../Pages/AddFood";
 
 
 
@@ -29,6 +32,18 @@ const router = createBrowserRouter([
       {
        path:'/gallery',
        element:<Gallery/>
+      },
+      {
+       path:'/addFood',
+       element:<AddFood/>
+      },
+      {
+       path:'/addedFoods',
+       element:<MyAddedFoods/>
+      },
+      {
+       path:'/orderedFoods',
+       element:<MyOrderedFoods/>
       },
       {
         path:'/register',

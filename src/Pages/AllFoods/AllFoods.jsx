@@ -2,28 +2,40 @@ import { Link } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
 import FoodCard from "./FoodCard";
+import { Helmet } from "react-helmet";
 
 const AllFoods = () => {
 
   const [cards, setCards] = useState([]);
+  const[search, setSearch] = useState('');
   const axiosSecure = useAxiosSecure();
 
 
   useEffect(() => {
     getCards();
-  }, []);
+  }, [search]);
 
   const getCards = async () => {
-    const { data } = await axiosSecure.get("/allFoods");
+    const { data } = await axiosSecure.get(`/allFoods?search=${search}`);
     setCards(data);
   };
 
   console.log(cards);
 
+  const handleSearch = e =>{
+    e.preventDefault();
+    const search = e.target.search.value;
+    setSearch(search)
+}
+
+console.log(search);
 
 
   return (
     <div className="space-y-10">
+       <Helmet>
+        <title>All Foods | Muhammad’s Cuisine</title>
+      </Helmet>
       <div className="flex relative w-full ">
         <img
           src="https://i.ibb.co/gwKPfxp/allfoods-banner.png"
@@ -49,11 +61,12 @@ const AllFoods = () => {
       <div>
         <div className="lg:w-1/3 md:w-1/2 w-[80%] mx-auto">
 
-          <form>
+          <form onSubmit={handleSearch}>
             <div className="flex items-center mt-2">
               <input
                 type="text"
                 placeholder="Search foods by name"
+                name="search"
                 className="block w-full rounded-r-none rtl:rounded-r-lg rtl:rounded-l-none  rounded-lg border bg-white px-5 lg:py-2.5 py-1.5  focus:border-[#4ee04e] focus:outline-none focus:ring focus:ring-[#a6f0a6] focus:ring-opacity-40"
               />
               <button

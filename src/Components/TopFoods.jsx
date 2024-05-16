@@ -55,7 +55,7 @@ const TopFoods = () => {
 
         <div className="flex justify-center mt-16 ">
           <Link to='/allFoods'>
-           <button className="btn btn-outline text-[#33b658] btn-sm px-6 rounded-md hover:bg-[#6fd78d] transition duration-700 font-extrabold">Explore More</button>
+           <button className="btn btn-outline text-[#33b658] btn-sm px-6 rounded-md hover:bg-[#6fd78d] transition duration-700 font-extrabold merienda text-lg">Explore More</button>
           </Link>
         </div>
       </div>

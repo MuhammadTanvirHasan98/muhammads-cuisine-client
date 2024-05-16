@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const Gallery = () => {
   const { user } = useAuthContext();
@@ -66,6 +67,9 @@ const Gallery = () => {
 
   return (
     <div>
+       <Helmet>
+        <title>Gallery | Muhammad’s Cuisine</title>
+      </Helmet>
       <div className="flex relative w-full ">
         <img
           src="https://i.ibb.co/cQLLT5j/g-banner.png"

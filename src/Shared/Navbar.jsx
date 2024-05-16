@@ -111,13 +111,13 @@ const Navbar = () => {
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 space-y-3 font-semibold"
             >
               <li>
-                <Link>My added food items</Link>
+                <Link to='/addedFoods'>My added food items</Link>
               </li>
               <li>
-                <Link>Add a food item</Link>
+                <Link to='/addFood'>Add a food item</Link>
               </li>
               <li>
-                <Link>My ordered food items</Link>
+                <Link to='/orderedFoods'>My ordered food items</Link>
               </li>
               <li>
                 <Link

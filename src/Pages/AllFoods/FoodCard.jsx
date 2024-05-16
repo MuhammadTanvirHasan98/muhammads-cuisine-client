@@ -43,7 +43,7 @@ const FoodCard = ({ card }) => {
             {/* Buttons */}
             <div className="flex justify-center mt-2">
               <Link to={`/foodDetails/${_id}`}>
-                <button className="btn btn-outline btn-sm transition duration-500 hover:bg-orange-400 font-extrabold text-[#27a373]">
+                <button className="btn btn-outline btn-sm transition duration-500 hover:bg-orange-400 font-extrabold text-[#27a373] merienda">
                   View
                 </button>
               </Link>
