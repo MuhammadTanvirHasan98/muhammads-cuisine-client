@@ -11,8 +11,8 @@ const UserReviewCard = ({review}) => {
     <div className="border-2 border-orange-100 p-3 rounded-md">
       <div className="flex md:flex-row flex-col md:gap-4 gap-2">
 
-        <figure className="border-2 border-blue-100 rounded-md p-1 w-30  md:mx-0 mx-auto">
-         <img src={user_image} className="lg:w-[40] md:w-20 w-14 h-full rounded-[3px]" alt="user_img" />
+        <figure className="border-2 border-blue-100 rounded-md p-1 md:w-32 md:h-32 w-20 h-20 md:mx-0 mx-auto">
+         <img src={user_image} className="lg:w-[40] md:w-32 w-full h-full rounded-[3px]" alt="user_img" />
         </figure>
  
          <div className="space-y-2">

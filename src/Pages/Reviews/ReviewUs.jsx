@@ -26,6 +26,9 @@ const ReviewUs = () => {
     const user_occupation = form.get("occupation");
     const user_review  = form.get("reviewText");
 
+    if(user_review.length> 170) return toast.error("Your review's character limit exceeds!") 
+  
+
     const reviewInfo = {
       user_name: user?.displayName,
       user_image:user?.photoURL,

@@ -74,7 +74,7 @@ const FirebaseAuth = ({children}) => {
 
   // user log out //
   const logOut = async() =>{
-    const {data} = await axios.get("http://localhost:3000/logOut",{withCredentials:true})
+    const {data} = await axios.get("https://muhammads-cuisine-server.vercel.app/logOut",{withCredentials:true})
     console.log(data);
      setLoading(true);
      return signOut(auth);
