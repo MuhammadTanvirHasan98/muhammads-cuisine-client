@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
-import useAxiosSecure from "../hooks/useAxiosSecure";
+import axios from "axios";
 
 
 
@@ -16,7 +16,7 @@ const FirebaseAuth = ({children}) => {
   const[user, setUser] = useState([]);
   const[loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
-  const axiosSecure = useAxiosSecure();
+  // const axiosSecure = useAxiosSecure();
 
 
   //create user
@@ -74,7 +74,7 @@ const FirebaseAuth = ({children}) => {
 
   // user log out //
   const logOut = async() =>{
-    const {data} = await axiosSecure.get("/logOut")
+    const {data} = await axios.get("http://localhost:3000/logOut",{withCredentials:true})
     console.log(data);
      setLoading(true);
      return signOut(auth);

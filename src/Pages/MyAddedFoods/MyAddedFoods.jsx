@@ -3,8 +3,6 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuthContext from "../../hooks/useAuthContext";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
-// import toast from "react-hot-toast";
-// import Swal from "sweetalert2";
 
 
 const MyAddedFoods = () => {
@@ -16,7 +14,7 @@ const MyAddedFoods = () => {
 
   useEffect(() => {
     getFoods();
-  }, [user]);
+  }, [user?.email]);
 
   const getFoods = async () => {
     const { data } = await axiosSecure.get(`/addedFoods/${user?.email}`);

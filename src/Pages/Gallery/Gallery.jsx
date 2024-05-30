@@ -93,7 +93,7 @@ const Gallery = () => {
       </div>
 
       <div className="mt-10 mb-4 text-center">
-        <h1 className="md:text-xl text-lg font-semibold merienda">
+        <h1 className="md:text-xl text-lg font-semibold merienda text-orange-500">
           You can also give your feedback here.
         </h1>
       </div>

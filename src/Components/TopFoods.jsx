@@ -18,11 +18,11 @@ const TopFoods = () => {
     setCards(data);
   };
 
-  console.log(cards);
+
 
 
   return (
-    <div className="mt-20 space-y-12">
+    <div className="space-y-12">
       <div className="text-center">
           <p className="text-xs font-bold text-orange-500">◉ Top selling Foods ◉
           </p>
@@ -38,8 +38,8 @@ const TopFoods = () => {
           </p>
       </div>
       
-      <div className="w-[70%] mx-auto">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="lg:w-[70%] md:w-[80%] w-[85%] mx-auto">
+        <div className="grid grid-cols-1 md:gap-6 gap-12 md:grid-cols-2 lg:grid-cols-3">
 
           {
             cards.slice(0,6).map(card=> (

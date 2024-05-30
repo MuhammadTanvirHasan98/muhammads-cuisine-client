@@ -46,11 +46,23 @@ const Navbar = () => {
           Gallery
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-lg border-b-2 font-bold flex justify-center border-orange-600 text-orange-500"
+              : "font-bold text-lg flex justify-center text-orange-500"
+          }
+          to="/reviews"
+        >
+          Reviews
+        </NavLink>
+      </li>
     </div>
   );
 
   return (
-    <div className=" bg-[#dbf6db]">
+    <div className=" bg-[#dbf6db] relative z-10">
     <div className=" max-w-[2400px] mx-auto">
       <div className="navbar lg:w-[86%] p-0  w-[95%] mx-auto">
         <div className="navbar-start lg:w-[50%] w-full">
