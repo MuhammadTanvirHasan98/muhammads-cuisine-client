@@ -11,6 +11,20 @@
 
 Start your culinary journey with Muhammad's Cuisine today!
 
+## Used these npm packages:
+
+- [React Rating](https://www.npmjs.com/package/@smastrom/react-rating)
+- [Animate.css](https://animate.style/)
+- [React Fast Marquee](https://www.npmjs.com/package/react-fast-marquee)
+- [React Helmet](https://github.com/nfl/react-helmet)
+- [React Hot Toast](https://react-hot-toast.com/)
+- [React Loader Spinner](https://mhnpd.github.io/react-loader-spinner/)
+- [SweetAlert2](https://sweetalert2.github.io/)
+- [Swiper](https://swiperjs.com/)
+- [Swiper Slider](https://swiperjs.com/)
+- [React Router Dom](https://reactrouter.com/web/guides/quick-start)
+
+
 ## All Credits:
 This website is developed by **Muhammad Tanvir Hasan**
 
