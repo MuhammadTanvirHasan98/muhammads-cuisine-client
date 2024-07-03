@@ -1,8 +1,53 @@
-# React + Vite
+# Muhammad's Cuisine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[**Muhammad's Cuisine**](https://muhammads-cuisine.web.app/) is a premier restaurant website where people can find various types of delicious foods from different countries. Our platform focuses on providing an exceptional user experience, making it easy for customers to browse, order, and review their favorite dishes.
 
-Currently, two official plugins are available:
+## Key Features:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Users can add, update, and delete food items, enhancing their browsing experience.**
+- **Users can purchase food items from the website, and these items will be stored in 'My Ordered Food Items'.**
+- **Users can review food items by uploading images and sharing thoughts in the Gallery section.**
+- **Users can review the restaurant’s services and all users' reviews are shown in the Reviews section.**
+
+Start your culinary journey with Muhammad's Cuisine today!
+
+## All Credits:
+This website is developed by **Muhammad Tanvir Hasan**
+
+### Getting Started
+
+#### Prerequisites
+Make sure you have the following installed on your system:
+- Node.js (v14.x or higher)
+- npm (v6.x or higher) or yarn (v1.x or higher)
+
+### Installation
+1.Clone the repository:
+```bash
+git clone https://github.com/MuhammadTanvirHasan98/muhammads-cuisine-client.git
+cd muhammads-cuisine-client
+```
+2.Installation:
+```bash
+npm install
+```
+3.Set up Firebase
+- Create a Firebase project: Visit [Firebase Console](https://console.firebase.google.com/)
+- Add a web app to generate Firebase configuration details.
+- Create a .env file in your project's root directory with the following Firebase configuration:
+```bash
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+4.Run the development server:
+```bash
+npm run dev
+```
+5.Build for production:
+```bash
+npm run build
+```
